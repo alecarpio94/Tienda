@@ -4,11 +4,11 @@ from Inventario.models import Productos
 
 class Cliente(models.Model):
     Documento = models.IntegerField(primary_key=True)
-    Nombre = models.CharField(max_length=50)
-    Email = models.EmailField()
-    Telefono = models.IntegerField()
+    Nombre    = models.CharField(max_length=50)
+    Email     = models.EmailField()
+    Telefono  = models.IntegerField()
     Direccion = models.CharField(max_length=250)
-    Ciudad = models.CharField(max_length=100)
+    Ciudad    = models.CharField(max_length=100)
 
     def __str__(self):
         return str(self.Documento)
