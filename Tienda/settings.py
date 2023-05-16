@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Inventario.apps.InventarioConfig',
-    'Compras.apps.ComprasConfig',
     'Venta.apps.VentaConfig',
 ]
 
