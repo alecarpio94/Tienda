@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Categorias, Productos, Unidades
+from .models import *
 # Register your models here.
 
-admin.site.register(Categorias)
-admin.site.register(Productos)
-admin.site.register(Unidades)
+admin.site.register(Producto)
+admin.site.register(Categoria)
+admin.site.register(Unidad)
+admin.site.register(Medida)

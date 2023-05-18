@@ -1,28 +1,27 @@
 from django.db import models
-from Inventario.models import Productos
+from Inventario.models import Producto
 # Create your models here.
 
 class Cliente(models.Model):
-    Documento = models.IntegerField(primary_key=True)
-    Nombre = models.CharField(max_length=50)
-    Email = models.EmailField()
-    Telefono = models.IntegerField()
-    Direccion = models.CharField(max_length=250)
-    Ciudad = models.CharField(max_length=100)
+    id = models.AutoField(primary_key=True)
+    cedula = models.IntegerField(max_length=11)
+    nombre = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=50)
+    telefono = models.IntegerField()
 
     def __str__(self):
-        return str(self.Documento)
+        return self.nombre+" - "+str(self.cedula)
+
 
 class Venta(models.Model):
     id = models.AutoField(primary_key=True)
-    cliente = models.ManyToManyField(
-        Cliente,
-        default=None,
-    )
-    Producto = models.ManyToManyField(
-        Productos,
-        default=None,
-    )
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    cliente = models.CharField(max_length=50)
+    direccion = models.CharField(max_length=50)
+    telefono = models.IntegerField()
+    total = models.IntegerField()
+    fecha = models.DateField()
 
     def __str__(self):
-        return str ("#" + str(self.id))
+        return "Factura #" + str(self.id)
